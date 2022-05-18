@@ -18,4 +18,9 @@ public class BasePage extends PageObject {
             return WaitElement.wait(getDriver(), xpath2);
         }
     }
+
+    protected void acceptCookies() {
+        WebElement acceptCookiesButton = getElement("/html/body/div[1]/div[2]/div[4]/div/button");
+        acceptCookiesButton.click();
+    }
 }

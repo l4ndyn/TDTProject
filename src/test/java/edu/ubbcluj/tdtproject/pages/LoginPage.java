@@ -11,9 +11,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-public class LoginPage extends PageObject {
+public class LoginPage extends BasePage {
 
     public void openPage(String username, String password) {
+        getDriver().manage().window().maximize();
         getDriver().get("https://lighthouse-demo.evozon.com/login");
 
         String url = null;
@@ -50,20 +51,7 @@ public class LoginPage extends PageObject {
         passwordField.sendKeys(password);
         signInButton.click();
 
-        if (getDriver().findElements(By.xpath("//*[@id=\"__next\"]//h1[contains(text(),'Too many failed attempts.')]")).size() > 0) {
-            try {
-                Thread.sleep(30000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            waitForLoginPageToLoad();
-            usernameField.clear();
-            passwordField.clear();
-
-            usernameField.sendKeys(email);
-            passwordField.sendKeys(password);
-            signInButton.click();
-        }
+        acceptCookies();
     }
 
 }

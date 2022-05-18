@@ -34,4 +34,39 @@ public class EndUserSteps {
     public void shouldBeOnBookingPage() {
         assertTrue("User should be on the main bookings page!", bookingPage.isMainBookingPage());
     }
+
+    @Step
+    public void opensBookForAnotherUser() {
+        bookingPage.openBookForAnotherUser();
+    }
+
+    @Step
+    public void entersTargetUserEmail(String email) {
+        bookingPage.enterTargetUserEmail(email);
+    }
+
+    @Step
+    public void selectsEquipment(String equipment) {
+        bookingPage.selectEquipment(equipment);
+    }
+
+    @Step
+    public void selectsLocation(int locationIndex) {
+        bookingPage.selectLocation(locationIndex);
+    }
+
+    @Step
+    public void selectsDate() {
+        bookingPage.selectDate();
+    }
+
+    @Step
+    public void selectsDesk() {
+        bookingPage.selectDesk();
+    }
+
+    @Step
+    public void booksDesk() {
+        bookingPage.bookDesk();
+    }
 }
