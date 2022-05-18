@@ -29,6 +29,10 @@ public class BookingPage extends BasePage {
         return getElement("//*[@id=\"__next\"]/div[2]/div[3]/div[1]/div/div/div[2]/div[3]/div/div[1]/div/div/div");
     }
 
+    private WebElement getLastBookingsArrow() {
+        return getElement("//*[@id=\"__next\"]/div[2]/div[3]/div[1]/div/div/div[2]/div[3]/div[1]/div[2]");
+    }
+
     public void openAddBooking() {
         getAddBookingButton().click();
     }
@@ -83,7 +87,19 @@ public class BookingPage extends BasePage {
         getBookDeskButton().click();
     }
 
+    public void displayLastBookings() {
+        getLastBookingsArrow().click();
+    }
+
+    public WebElement getDateFromDatePickerCell(int row, int column) {
+        return getDriver().findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[3]/div[1]/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[3]/div[" + row + "]/div[" + column + "]"));
+    }
+
     public boolean isMainBookingPage() {
         return getAddBookingButton().isDisplayed();
+    }
+
+    public boolean isLastBookingsDisplayed() {
+        return getLastBookingsArrow().getAttribute("class").contains("Mui-expanded");
     }
 }

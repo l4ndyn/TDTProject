@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 @DefaultUrl("https://lighthouse-demo.evozon.com/all-bookings")
 public class AllBookingsPage extends BasePage {
+
     private WebElement getBookingCheckbox(int bookingIndex) {
         try {
             Thread.sleep(100);
@@ -48,7 +49,7 @@ public class AllBookingsPage extends BasePage {
     }
 
     public void startDeleteSelectedBookings() {
-        WebElement deleteButton = getElement("//*[@id=\"__next\"]/div[2]/div[3]/div[2]/div/div/div/div[4]/div[2]/button");
+        WebElement deleteButton = getDriver().findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[3]/div[2]/div/div/div/div[4]/div[2]/button"));
         deleteButton.click();
     }
 

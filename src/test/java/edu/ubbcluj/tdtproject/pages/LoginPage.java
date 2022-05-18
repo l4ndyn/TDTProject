@@ -51,7 +51,21 @@ public class LoginPage extends BasePage {
         passwordField.sendKeys(password);
         signInButton.click();
 
+        if(getDriver().findElements(By.xpath("//*[@id=\"__next\"]//h1[contains(text(),'Too many failed attempts.')]")).size() > 0)
+        {
+            try {
+                Thread.sleep(32000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            usernameField.clear();
+            passwordField.clear();
+
+            usernameField.sendKeys(email);
+            passwordField.sendKeys(password);
+            signInButton.click();
+        }
+
         acceptCookies();
     }
-
 }

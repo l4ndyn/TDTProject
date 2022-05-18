@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class WaitElement {
-    private static final int waitSeconds = 5;
+    private static final int waitSeconds = 3;
 
     public static void wait(WebDriver driver, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitSeconds));
